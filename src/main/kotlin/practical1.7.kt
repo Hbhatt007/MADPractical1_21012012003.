@@ -1,9 +1,14 @@
-fun main()
-{
-    val number = 4
-    println("Factorial of $number = ${fact(number)}")
+fun main() {
+    println("Enter number:")
+    var number: Int = readLine()!!.toInt()
+    val factorial = fact(number)
+    println("Factorial of $number = $factorial")
+    println("by tailrec keyword,factorial of 5 is $number=$factorial")
 }
-tailrec fun fact(n: Int, run: Int = 1): Long
-{
-    return if (n == 1) run.toLong() else fact(n-1, run*n)
+tailrec fun fact(n: Int, temp: Int = 1): Int {
+    return if (n == 1){
+        temp
+    } else {
+        fact(n-1, temp*n)
+    }
 }
